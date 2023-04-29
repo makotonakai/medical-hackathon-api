@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"errors"
 	"gorm.io/gorm"
-	"github.com/makotonakai/medical-hackathon/database"
+	"github.com/makotonakai/medical-hackathon/app/database"
 )
 
 var db = database.Connect()

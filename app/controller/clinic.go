@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"net/http"
 	"github.com/labstack/echo/v4"
-	"github.com/makotonakai/medical-hackathon/model"
+	"github.com/makotonakai/medical-hackathon/app/model"
 )
 
 //----------

@@ -3,7 +3,7 @@ package router
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/makotonakai/medical-hackathon/controller"
+	"github.com/makotonakai/medical-hackathon/app/controller"
 )
 
 func Initialize() *echo.Echo {
