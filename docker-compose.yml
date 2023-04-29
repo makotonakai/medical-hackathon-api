@@ -15,10 +15,12 @@ services:
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - dbvolume:/var/lib/mysql:rw
-      - ./database/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./database/sql:/docker-entrypoint-initdb.d
+      - ./app/database/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./app/database/sql:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
+    networks:
+      - network
 
   # phpMyAdmin
   phpmyadmin:
@@ -32,7 +34,24 @@ services:
       - PMA_PASSWORD=docker
     ports:
       - 8080:80
+    networks:
+      - network
+
+  api-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 1323:1323
+    depends_on:
+      - db
+    networks:
+      - network
 
 volumes:
   dbvolume:
     driver: local
+
+networks:
+  network:
+    driver: bridge
