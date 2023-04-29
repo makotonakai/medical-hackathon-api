@@ -3,7 +3,7 @@
 ### サーバー起動方法
 ``` 
 $ cd medical-hackathon-api
-docker-compose up -d
+$ docker-compose up -d
 ```
 
 ### API
