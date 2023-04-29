@@ -5,6 +5,7 @@ services:
   db:
     image: mariadb:10.2
     container_name: mysql_host
+    user: root
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: test_database
@@ -13,7 +14,7 @@ services:
       TZ: 'Asia/Tokyo'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-      - ./database/data:/var/lib/mysql
+      - dbvolume:/var/lib/mysql:rw
       - ./database/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./database/sql:/docker-entrypoint-initdb.d
     ports:
@@ -27,7 +28,11 @@ services:
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOSTS=mysql_host
-      - PMA_USER=root
-      - PMA_PASSWORD=root
+      - PMA_USER=docker
+      - PMA_PASSWORD=docker
     ports:
       - 8080:80
+
+volumes:
+  dbvolume:
+    driver: local
