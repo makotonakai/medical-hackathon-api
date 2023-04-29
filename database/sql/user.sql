@@ -11,4 +11,4 @@ create table IF not exists users
     PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO users ("id", "name", "created_at", "updated_at") VALUES (1, "user", current_timestamp, current_timestamp);
+INSERT INTO users VALUES (1, "user", current_timestamp, current_timestamp);
