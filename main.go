@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/makotonakai/medical-hackathon/router"
+	"github.com/makotonakai/medical-hackathon/app/router"
 )
 
 func main() {
