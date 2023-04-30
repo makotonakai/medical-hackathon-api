@@ -30,6 +30,9 @@ func Initialize() *echo.Echo {
 	api.PUT("/clinics/:id", controller.UpdateClinic)
 	api.DELETE("/clinics/:id", controller.DeleteClinic)
 
+	api.POST("/mypage/new", controller.CreateMyPage)
+	api.GET("/mypage/:user_id", controller.GetMyPageByUserId)
+
 	return e
 
 }

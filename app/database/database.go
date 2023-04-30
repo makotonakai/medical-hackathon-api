@@ -7,7 +7,7 @@ import (
 )
 func Connect() *gorm.DB {
 
-  dsn := "root:root@tcp(mysql_host)/test_database?charset=utf8mb4&parseTime=True&loc=Local"
+  dsn := "docker:docker@tcp(mysql_host)/test_database?charset=utf8mb4&parseTime=True&loc=Local"
   db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		DisableForeignKeyConstraintWhenMigrating: true,
 	})

@@ -9,6 +9,8 @@ import (
 type Clinic struct {
 	ID int `json:"id" param:"id" gorm:"primaryKey;autoIncrement"`
 	Name string `json:"name"`
+	PostalCode string `json:"postal_code"`
+	Address string `json:"address"`
 }
 
 func (c *Clinic) Create() {
