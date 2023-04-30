@@ -8,7 +8,7 @@ import (
 
 type FamilyHistory struct {
 	ID int `json:"id" param:"id" gorm:"primaryKey;autoIncrement"`
-	UserID string `json:"user_id" param:"user_id"`
+	UserID int `json:"user_id" param:"user_id"`
 	Description string `json:"description"`
 }
 
@@ -27,7 +27,7 @@ func (m *FamilyHistory) GetAll() []FamilyHistory {
  
 func GetFamilyHistoriesByUserId(user_id int) []FamilyHistory {
 	fh := []FamilyHistory{}
-	err := db.Where("user_id = ?", user_id).Find(&fh).Error
+	err := db.Table("family_histories").Where("user_id = ?", user_id).Find(&fh).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 			fmt.Println("No user found")
 	}

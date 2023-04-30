@@ -8,7 +8,7 @@ import (
 
 type SmokeHistory struct {
 	ID int `json:"id" param:"id" gorm:"primaryKey;autoIncrement"`
-	UserID string `json:"user_id" param:"user_id"`
+	UserID int `json:"user_id" param:"user_id"`
 	Description string `json:"description"`
 }
 
@@ -27,7 +27,7 @@ func (m *SmokeHistory) GetAll() []SmokeHistory {
  
 func GetSmokeHistoriesByUserId(user_id int) []SmokeHistory {
 	sh := []SmokeHistory{}
-	err := db.Where("user_id = ?", user_id).Find(&sh).Error
+	err := db.Table("smoke_histories").Where("user_id = ?", user_id).Find(&sh).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 			fmt.Println("No user found")
 	}

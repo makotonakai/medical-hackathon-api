@@ -8,7 +8,7 @@ import (
 
 type Allergy struct {
 	ID int `json:"id" param:"id" gorm:"primaryKey;autoIncrement"`
-	UserID string `json:"user_id" param:"user_id"`
+	UserID int `json:"user_id" param:"user_id"`
 	Description string `json:"description"`
 }
 

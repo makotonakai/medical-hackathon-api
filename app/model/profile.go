@@ -8,7 +8,7 @@ import (
 
 type Profile struct {
 	ID int `json:"id" param:"id" gorm:"primaryKey;autoIncrement"`
-	UserID string `json:"user_id" param:"user_id"`
+	UserID int `json:"user_id" param:"user_id"`
 	Sex string `json:"sex"`
 	IsPregnant bool `json:"is_pregnant"`
 	Height int `json:"height"`
