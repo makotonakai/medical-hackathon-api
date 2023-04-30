@@ -28,6 +28,9 @@ $ docker-compose up -d
 | PUT      | localhost:1323/api/clinics/:id | クリニック1件更新  |
 | DELETE   | localhost:1323/api/clinics/:id | クリニック1件削除  |
 
-
+#### My page 
+| コマンド | パス                        | 役割              |
+| -------- | --------------------------- | ----------------- |
+| GET      | localhost:1323/api/mypage/1 | クリニック1件取得 |
 
 
